@@ -15,7 +15,7 @@ bash erasersetup.sh
 
 Put bo6.py and visualize.py in the mask/Mask_RCNN directory, overwriting the original visualize.py. The modified visualize.py applies opaque masks on a black background rather than apply half opaque masks over the image.
 
-Put process.py in the mask directory. Also put a video of your choice in this directory. You can find a list of objects that can be detected in bo6.py. When running process.py, it will ask the name of your video file (recommended to add .mp4 to end of file name). Then it will ask the desired name for the output video. After initial processing, it will ask which class you want to be removed by typing in a number, i.e. 1 for person. You can input more than one class by separating the numbers with spaces.
+Put process.py in the mask directory. Also put a video of your choice in this directory. You can find a list of objects that can be detected in bo6.py. When running process.py, it will ask the name of your video file. Then it will ask the desired name for the output video (recommended to add .mp4 to end of file name). After initial processing, it will ask which class you want to be removed by typing in a number, i.e. 1 for person. You can input more than one class by separating the numbers with spaces.
 
 Run process.py
 ```
