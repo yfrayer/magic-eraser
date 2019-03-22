@@ -31,4 +31,6 @@ Process the video with half opaque masks and automatically show to the user, giv
 
 Allow the user to select specific objects, not just all objects that match a class
 
+Option to create a green screen effect
+
 Simplify setup process
