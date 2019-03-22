@@ -21,6 +21,7 @@ Run process.py
 ```
 python process.py
 ```
+The output file will be in the mask directory.
 
 ## To Do
 
