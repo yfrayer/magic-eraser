@@ -30,3 +30,5 @@ Things that have yet to be added:
 Process the video with half opaque masks and automatically show to the user, give a list of classes/objects/indices detected, and then ask the user what they want to remove
 
 Allow the user to select specific objects, not just all objects that match a class
+
+Simplify setup process
