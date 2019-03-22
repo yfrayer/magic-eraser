@@ -1,1 +1,2 @@
-# magic-eraser
+# Magic Eraser
+
