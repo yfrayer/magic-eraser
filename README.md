@@ -34,3 +34,7 @@ Allow the user to select specific objects, not just all objects that match a cla
 Option to create a green screen effect
 
 Simplify setup process
+
+Remove images from folders before processing a new video
+
+Provide option to restore data from previous run if same video
