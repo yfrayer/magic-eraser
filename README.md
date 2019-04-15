@@ -21,10 +21,51 @@ After detecting objects, a video will be shown that highlights which objects are
 
 The output file will be in the working directory or the directory specified.
 
-## To Do
+## GPU Setup (WIP)
 
-Things that have yet to be added:
+To improve speed, TensorFlow can be set up for GPU support. To use TensorFlow for GPU, an NVIDIA card with CUDA support is required. The CPU and GPU versions of TensorFlow may conflict, so uninstall TensorFlow first if necessary. Magic Eraser has not been tested with GPU, but it should work the same as CPU.
+
+Go to any directory and download and install the Miniconda installer for Python 3.7 64 bit. Anaconda may be used instead, but Minoconda is more lightweight. Miniconda is a type of virtual environment and replaces Virtualenv in this setup.
+```
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
+```
+
+Then create a conda environment named tf_gpu that installs tensorflow-gpu and various other components.
+```
+conda create --name tf_gpu tensorflow-gpu
+```
+
+Enter the conda environment.
+```
+activate tf_gpu
+```
+
+To test if tensorflow is working, enter a python shell (type python or python3), and enter the following. This should tell you what GPU you’re using and other information.
+```
+import tensorflow as tf
+sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
+```
+
+In order to install more components through pip, you will need to go to the directory within miniconda containing pip, which should be located under your home directory.
+```
+cd #go to home directory
+cd miniconda3/bin
+```
+
+In the bin directory you can install components listed in erasersetup.sh that use pip, for example:
+```
+pip install runipy
+```
+
+Most of the set up in erasersetup.sh is the same, except for the lines installing TensorFlow and Virtualenv. The line for installing Keras needs to be run after TensorFlow is installed and working (Line 38). Keras can be force reinstalled with --force-reinstall added to the command.
+
+## Known Issues
+
+The frame rate of the output does not exactly resemble input. The program extracts images at 30 fps and recreates the video at 30 fps, but a side by side comparison shows lag in the output video.
+
+## Future Development
 
 Option to create a green screen effect
 
-Provide option to restore data from previous run if same video
+Save images and data from previous program runs and allow user to select different objects to remove
