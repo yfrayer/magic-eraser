@@ -64,8 +64,12 @@ Most of the set up in erasersetup.sh is the same, except for the lines installin
 
 The frame rate of the output does not exactly resemble input. The program extracts images at 30 fps and recreates the video at 30 fps, but a side by side comparison shows lag in the output video.
 
+The object tracking is not perfect, as multiple objects moving in and out of detection causes ids to be incorrectly rearranged.
+
 ## Future Development
 
 Option to create a green screen effect
 
 Save images and data from previous program runs and allow user to select different objects to remove
+
+Allow user to select which part of the video to modify
