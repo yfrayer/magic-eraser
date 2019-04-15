@@ -4,7 +4,7 @@ This project currently take a video, asks the user which class(es) of objects th
 
 ## Setup
 
-This project was tested on Ubuntu Studio 16.04.3 LTS with various third party applications already installed. If you do not have ImageMagick and FFmpeg, you will need to install them. The version of TensorFlow used requires a CPU that supports AVX instructions. 32 GB of memory is recommended.
+This project was tested on Ubuntu Studio 16.04.3 LTS with various third party applications already installed. If you do not have ImageMagick, MPlayer, and FFmpeg, you will need to install them. The version of TensorFlow used requires a CPU that supports AVX instructions. 32 GB of memory is recommended.
 
 Put erasersetup.sh in your home directory or other desired directory. This will create a virtual environment using virtualenv, install dependencies for TensorFlow, clone repositories for using Mask RCNN, and set up directories for image processing.
 
@@ -13,28 +13,18 @@ Run erasersetup.sh
 bash erasersetup.sh
 ```
 
-Put bo6.py and visualize.py in the mask/Mask_RCNN directory, overwriting the original visualize.py. The modified visualize.py applies opaque masks on a black background rather than apply half opaque masks over the image.
-
-Put process.py in the mask directory. Also put a video of your choice in this directory. When running process.py, it will ask the name of your video file. Then it will ask the desired name for the output video (recommended to add .mp4 to end of file name). After initial processing, it will ask which class you want to be removed by typing in a number, i.e. 1 for person. You can input more than one class by separating the numbers with spaces. You can find a list of objects that can be detected in bo6.py.
-
-Run process.py
+Transfer a video to the MagicEraser directory. Objects that the program can detect are listed in the runmask.py file. Enter the MagicEraser directory and run eraser.py. It will ask the name of the input video and the desired name for the output video. It is recommended that the input video is mp4 format and the name of the output video ends in .mp4.
 ```
-python process.py
+python eraser.py
 ```
-The output file will be in the mask directory.
+After detecting objects, a video will be shown that highlights which objects are detected, along with each object's id and class name. After you close out of the video, the program will ask whether ids or classes should be removed, or if all detected objects should be removed. When selecting ids, it will ask for integer values. When selecting classes, it will ask for the names of the classes. Multiple inputs are separated with a space. After inputting ids or classes, it will ask for any additional inputs, or to continue.
+
+The output file will be in the working directory or the directory specified.
 
 ## To Do
 
 Things that have yet to be added:
 
-Process the video with half opaque masks and automatically show to the user, give a list of classes/objects/indices detected, and then ask the user what they want to remove
-
-Allow the user to select specific objects, not just all objects that match a class
-
 Option to create a green screen effect
-
-Simplify setup process
-
-Remove images from folders before processing a new video
 
 Provide option to restore data from previous run if same video
