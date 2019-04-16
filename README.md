@@ -4,7 +4,7 @@ This project currently take a video, asks the user which class(es) of objects th
 
 ## Setup
 
-This project was tested on Ubuntu Studio 16.04.3 LTS with various third party applications already installed. If you do not have ImageMagick, MPlayer, and FFmpeg, you will need to install them. The version of TensorFlow used requires a CPU that supports AVX instructions. 32 GB of memory is recommended.
+This project was tested on Ubuntu Studio 16.04.3 LTS with various third party applications already installed. If you do not have ImageMagick, MPlayer, and FFmpeg, you will need to install them. The version of TensorFlow used requires a CPU that supports AVX instructions. 32 GB of memory is recommended, but memory usage depends on the number and size of frames in your video.
 
 Put erasersetup.sh in your home directory or other desired directory. This will create a virtual environment using virtualenv, install dependencies for TensorFlow, clone repositories for using Mask RCNN, and set up directories for image processing.
 
@@ -19,7 +19,7 @@ python eraser.py
 ```
 After detecting objects, a video will be shown that highlights which objects are detected, along with each object's id and class name. After you close out of the video, the program will ask whether ids or classes should be removed, or if all detected objects should be removed. When selecting ids, it will ask for integer values. When selecting classes, it will ask for the names of the classes. Multiple inputs are separated with a space. After inputting ids or classes, it will ask for any additional inputs, or to continue.
 
-The output file will be in the working directory or the directory specified.
+The output file will be in the working directory or the directory specified. The video directory contains videos demonstrating the steps of the program, where fourvideo.mp4 shows four videos side by side.
 
 ## GPU Setup (WIP)
 
@@ -47,7 +47,7 @@ import tensorflow as tf
 sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
 ```
 
-In order to install more components through pip, you will need to go to the directory within miniconda containing pip, which should be located under your home directory.
+In order to install components through pip, you will need to go to the directory within miniconda containing pip, which should be located under your home directory.
 ```
 cd #go to home directory
 cd miniconda3/bin
@@ -58,13 +58,13 @@ In the bin directory you can install components listed in erasersetup.sh that us
 pip install runipy
 ```
 
-Most of the set up in erasersetup.sh is the same, except for the lines installing TensorFlow and Virtualenv. The line for installing Keras needs to be run after TensorFlow is installed and working (Line 38). Keras can be force reinstalled with --force-reinstall added to the command.
+The setup procedures in erasersetup.sh are the same, except for the lines installing TensorFlow and Virtualenv. The line for installing Keras needs to be run after TensorFlow is installed and working (Line 38). Keras can be force reinstalled with --force-reinstall added to the command.
 
 ## Known Issues
 
 The frame rate of the output does not exactly resemble input. The program extracts images at 30 fps and recreates the video at 30 fps, but a side by side comparison shows lag in the output video.
 
-The object tracking is not perfect, as multiple objects moving in and out of detection causes ids to be incorrectly rearranged.
+The object tracking does not work for all cases, as multiple objects moving in and out of detection causes ids to be incorrectly rearranged.
 
 ## Future Development
 
@@ -73,3 +73,5 @@ Option to create a green screen effect
 Save images and data from previous program runs and allow user to select different objects to remove
 
 Allow user to select which part of the video to modify
+
+Disregard objects that have low confidence scores in object tracking
