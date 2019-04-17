@@ -62,7 +62,7 @@ The setup procedures in erasersetup.sh are the same, except for the lines instal
 
 ## Known Issues
 
-The frame rate of the output does not exactly resemble input. The program extracts images at 30 fps and recreates the video at 30 fps, but a side by side comparison shows lag in the output video.
+The frame rate of the output does not exactly resemble input for some videos. The program extracts images at 30 fps and recreates the video at 30 fps, but a side by side comparison shows lag in the output video.
 
 The object tracking does not work for all cases, as multiple objects moving in and out of detection causes ids to be incorrectly rearranged.
 
