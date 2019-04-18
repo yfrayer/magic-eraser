@@ -13,7 +13,14 @@ Run erasersetup.sh
 bash erasersetup.sh
 ```
 
-Transfer a video to the MagicEraser directory. Objects that the program can detect are listed in the runmask.py file. Enter the MagicEraser directory and run eraser.py. It will ask the name of the input video and the desired name for the output video. It is recommended that the input video is mp4 format and the name of the output video ends in .mp4.
+Transfer a video to the MagicEraser directory. Objects that the program can detect are listed in the runmask.py file.
+
+Enter the virtual environment while you're in the home directory or other directory that erasersetup.sh was run.
+```
+source ./venv/bin/activate
+```
+
+Enter the MagicEraser directory and run eraser.py. It will ask the name of the input video and the desired name for the output video. It is recommended that the input video is mp4 format and the name of the output video ends in .mp4.
 ```
 python eraser.py
 ```
