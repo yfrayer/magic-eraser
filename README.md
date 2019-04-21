@@ -28,6 +28,11 @@ After detecting objects, a video will be shown that highlights which objects are
 
 The output file will be in the working directory or the directory specified. The video directory contains videos demonstrating the steps of the program, where fourvideo.mp4 shows four videos side by side.
 
+Use MPlayer to play a video. The following will loop the video.
+```
+mplayer -loop 0 output.mp4
+```
+
 ## GPU Setup (WIP)
 
 To improve speed, TensorFlow can be set up for GPU support. To use TensorFlow for GPU, an NVIDIA card with CUDA support is required. The CPU and GPU versions of TensorFlow may conflict, so uninstall TensorFlow first if necessary. Magic Eraser has not been tested with GPU, but it should work the same as CPU.
