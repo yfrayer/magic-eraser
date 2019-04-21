@@ -32,6 +32,10 @@ Use MPlayer to play a video. The following will loop the video.
 ```
 mplayer -loop 0 output.mp4
 ```
+The following will loop the video with half speed.
+```
+mplayer -loop 0 -speed .5 output.mp4
+```
 
 ## GPU Setup (WIP)
 
